@@ -33,7 +33,7 @@ function M.setup()
 
   vim.api.nvim_create_autocmd("InsertEnter", {
     callback = function()
-      if last_ime_state ~= 0 then
+      if last_ime_state ~= 1 then
         ime_on()
       end
     end,
