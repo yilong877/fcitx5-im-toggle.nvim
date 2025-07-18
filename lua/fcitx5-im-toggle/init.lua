@@ -1,6 +1,6 @@
 local M = {}
 
-local last_ime_state = 0
+local last_ime_state = 1
 
 local function has_fcitx5()
   return vim.fn.executable("fcitx5-remote") == 1
