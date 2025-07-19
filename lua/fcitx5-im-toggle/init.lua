@@ -23,8 +23,11 @@ local function ime_on()
   end
 end
 
+local ime_group = vim.api.nvim_create_augroup("IME", { clear = true })
+
 function M.setup()
   vim.api.nvim_create_autocmd("InsertLeave", {
+    group = ime_group,
     callback = function()
       last_ime_state = get_ime_state()
       ime_off()
@@ -32,6 +35,7 @@ function M.setup()
   })
 
   vim.api.nvim_create_autocmd("InsertEnter", {
+    group = ime_group,
     callback = function()
       if last_ime_state == 1 then
         ime_off()
